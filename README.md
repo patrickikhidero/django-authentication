@@ -38,3 +38,8 @@ We are to build a standalone full authentication API that can be used or injecte
 ### Desired Authentication Flow
 
 ![Authentication Workflow](./assets/auth.png)
+
+
+django admin
+08022568055
+bnm,./098
