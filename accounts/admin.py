@@ -8,6 +8,18 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 from .forms import UserAdminCreationForm, UserAdminChangeForm
 
+from .models import PhoneOTP
+from .models import User
+
+
+
+admin.site.register(PhoneOTP)
+
+
+
+# Remove Group Model from admin. We're not using it.
+admin.site.unregister(Group)
+
 
 
         
@@ -50,7 +62,3 @@ class UserAdmin(BaseUserAdmin):
 
 admin.site.register(User, UserAdmin)
 
-
-
-# Remove Group Model from admin. We're not using it.
-admin.site.unregister(Group)

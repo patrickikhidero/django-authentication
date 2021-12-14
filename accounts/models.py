@@ -53,7 +53,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser):
-    phone_regex = RegexValidator( regex   =r'^\+?1?\d{9,14}$', message ="Phone number must be entered in the format: '+999999999'. Up to 14 digits allowed.")
+    phone_regex = RegexValidator( regex   =r'^\+?1?\d{9,14}$', message ="Phone number must be entered in the format: '+2348070'. Up to 14 digits allowed.")
     phone       = models.CharField(validators=[phone_regex], max_length=17, unique=True)
     name        = models.CharField(max_length = 20, blank = True, null = True)
     first_login = models.BooleanField(default=False)
@@ -97,3 +97,15 @@ class User(AbstractBaseUser):
     @property
     def is_active(self):
         return self.active
+
+
+
+class PhoneOTP(models.Model):
+    phone_regex = RegexValidator( regex   =r'^\+?1?\d{9,14}$', message ="Phone number must be entered in the format: '+999999999'. Up to 14 digits allowed.")
+    phone       = models.CharField(validators=[phone_regex], max_length=17, unique=True)
+    otp         = models.CharField(max_length = 9, blank = True, null= True)
+    count       = models.IntegerField(default = 0, help_text = 'Number of otp sent')
+    
+    
+    def __str__(self):
+        return str(self.phone) + ' is sent ' + str(self.otp)
