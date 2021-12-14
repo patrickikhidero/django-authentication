@@ -4,4 +4,9 @@ __pycache__/
 /static/images/.DS_Store
 /.DS_Store
 /static/.DS_Store
+
+.env
 venv
+__pycache__
+__pycache__/
+*.py[cod]
